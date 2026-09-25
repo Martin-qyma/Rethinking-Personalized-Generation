@@ -1,0 +1,14 @@
+torch>=2.4
+transformers>=4.51,<5
+vllm>=0.10          # sampling and last-token embeddings
+accelerate>=1.0     # finetuning the 8B comparator (FSDP)
+datasets
+huggingface_hub
+pandas
+numpy
+scipy
+rank_bm25
+rouge_score
+sacrebleu
+matplotlib
+tqdm

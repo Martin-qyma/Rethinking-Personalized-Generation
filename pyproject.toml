@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rethinking"
+version = "0.1.0"
+description = "Rethinking Personalized Generation: Test-Time Alignment via Lightweight Ranking Models"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+packages = ["rethinking"]

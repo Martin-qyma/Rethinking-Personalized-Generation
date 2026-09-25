@@ -1,0 +1,32 @@
+{
+ "synthesize.predict": {
+  "lm": null,
+  "traces": [],
+  "train": [],
+  "demos": [],
+  "signature": {
+   "instructions": "Propose an instruction that will be used to prompt a Language Model to generate a user persona based on a set of past judgements and reasoning. The instruction should include a high-stakes scenario in which the LM must solve the task.\n\n\"Imagine you are a detective tasked with solving a mysterious case involving a series of eerie and surreal events. You have been provided with a set of past judgements and reasoning from a previous investigation, and you must use this information to build a user persona that will help you crack the case. The persona should be based on the individual's preferences, values, and behaviors, and should provide insight into their motivations and actions. The goal is to create a comprehensive and accurate user persona that will aid in the investigation and ultimately lead to the resolution of the case. Please generate a user persona based on the provided information, and be prepared to defend your reasoning and conclusions.",
+   "fields": [
+    {
+     "prefix": "Past Judgements:",
+     "description": "A set of user judgements on prior conversations alongside reasoning for those judgements."
+    },
+    {
+     "prefix": "Reasoning: Let's think step by step in order to",
+     "description": "${reasoning}"
+    },
+    {
+     "prefix": "Synthesized Persona:",
+     "description": "A synthesized user persona that can be used to inform future judgements."
+    }
+   ]
+  }
+ },
+ "metadata": {
+  "dependency_versions": {
+   "python": "3.12",
+   "dspy": "2.6.12",
+   "cloudpickle": "3.1"
+  }
+ }
+}
