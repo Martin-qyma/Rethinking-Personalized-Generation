@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cross-metric generalization (App. B.2, Table ``tab:bleu_transfer``).
+"""Cross-metric generalization (BLEU of the Best-of-64 selection).
 
 Every selector picks the argmax of its scores over the first N candidates of a
 pool; the selected candidate is then evaluated with a metric the rankers were

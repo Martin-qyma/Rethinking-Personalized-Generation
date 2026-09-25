@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agreement between ROUGE-L and BLEU at the candidate level (App. B.2, Table ``tab:metric_agreement``).
+"""Agreement between ROUGE-L and BLEU at the candidate level (metric agreement table).
 
 For each evaluation prompt the two metrics are compared over the first N
 candidates of its pool:

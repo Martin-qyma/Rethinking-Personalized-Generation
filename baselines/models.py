@@ -1,4 +1,4 @@
-"""Personalized reward-model baselines of App. B.3 (PAL, VPL, PReF, LoRe) and our ranker.
+"""Personalized reward-model baselines (PAL, VPL, PReF, LoRe) and our ranker.
 
 Each baseline is a port of the official implementation that preserves the mechanism
 that defines the method, namely **how the per-user parameters theta_u are obtained**:

@@ -1,4 +1,4 @@
-"""Ranking objectives compared in Appendix B.1 (pointwise MSE is the default).
+"""Ranking objectives compared in the paper's objective ablation (pointwise MSE is the default).
 
 All losses take predictions and targets of shape (B, N) plus a validity mask;
 targets are the within-pool standardized metric except for ``mse_abs``.

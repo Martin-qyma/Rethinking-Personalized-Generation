@@ -1,6 +1,6 @@
-# Rethinking Personalized Generation: Test-Time Alignment via Lightweight Ranking Models
+# Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models
 
-Code for the paper *Rethinking Personalized Generation: Test-Time Alignment via Lightweight Ranking Models* (under review at ICLR 2027).
+Official code for the NeurIPS 2026 paper *Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models*.
 
 The base generator already produces well-personalized responses; what is missing is a way to pick them out. When the evaluation metric selects the best of *N* sampled candidates (oracle), alignment with the user's own reference keeps rising with *N*. When a state-of-the-art reward model selects, it plateaus almost immediately.
 
@@ -22,7 +22,7 @@ rethinking/                 importable library
   reward_models.py          adapters for Skywork-V2, InternLM2, URM, ArmoRM
   guided.py                 entropy-gated ranking-guided decoding
 scripts/                    pipeline (one script per stage, see below)
-baselines/                  personalized reward-model baselines of App. B.3 (PAL, VPL, PReF, LoRe, GPO, SynthesizeMe)
+baselines/                  personalized reward-model baselines (PAL, VPL, PReF, LoRe, GPO, SynthesizeMe)
 analysis/                   appendix analyses: cross-metric transfer, user history, inference cost
 configs/fsdp.yaml           accelerate FSDP config for finetuning the 8B comparator
 ```
@@ -91,7 +91,7 @@ for rm in skywork internlm urm armorm; do
 # 6. ranking-guided generation (tau=1, H_max=8, alpha0=5, warmup 3) and its sensitivity grid
 python scripts/guided_generation.py --dataset LaMP_7 --ckpt checkpoints/ranker/LaMP_7/3M_mse --grid sensitivity
 
-# 7. finetuned 8B comparator (Figure 4): same pointwise objective as the ranker, then score
+# 7. finetuned 8B comparator for the size comparison: same pointwise objective as the ranker, then score
 accelerate launch --config_file configs/fsdp.yaml --num_processes 2 \
   scripts/finetune_reward_model.py --dataset LaMP_7 --out checkpoints/rm_ft/LaMP_7
 python scripts/score_reward_model.py --rm skywork --model_path checkpoints/rm_ft/LaMP_7 --tag skywork_ft \
@@ -106,12 +106,12 @@ After running the pipeline on all nine datasets:
 
 ```bash
 python scripts/collect_results.py                 # results/figdata.json and the headroom summary
-python scripts/plot_figures.py                    # Figures 1, 3, 4 and appendix Figures 5-7
-python scripts/print_tables.py objectives         # Table 2 (ranking objectives)
-python scripts/print_tables.py guided             # Table 7 (guided-generation sensitivity)
+python scripts/plot_figures.py                    # headroom, Best-of-N and size-scaling figures
+python scripts/print_tables.py objectives         # ranking-objective ablation
+python scripts/print_tables.py guided             # guided-generation sensitivity
 ```
 
-The Best-of-N curves in Figures 1 and 3 use the prompts scored by all four generalist reward models. The size comparison in Figure 4 and the tables use the full evaluation split. The appendix analyses are documented in [analysis/README.md](analysis/README.md) and the personalized reward-model baselines in [baselines/README.md](baselines/README.md).
+The headroom and Best-of-N curves use the prompts scored by all four generalist reward models. The size comparison and the tables use the full evaluation split. The appendix analyses are documented in [analysis/README.md](analysis/README.md) and the personalized reward-model baselines in [baselines/README.md](baselines/README.md).
 
 ## Protocol summary
 
@@ -127,11 +127,11 @@ The Best-of-N curves in Figures 1 and 3 use the prompts scored by all four gener
 ## Citation
 
 ```bibtex
-@inproceedings{rethinking2027personalized,
-  title     = {Rethinking Personalized Generation: Test-Time Alignment via Lightweight Ranking Models},
-  author    = {Anonymous},
-  booktitle = {Submitted to the International Conference on Learning Representations (ICLR)},
-  year      = {2027}
+@inproceedings{rethinking2026personalized,
+  title     = {Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models},
+  author    = {TODO: author list},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026}
 }
 ```
 

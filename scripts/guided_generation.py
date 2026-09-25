@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Ranking-guided generation on the first ``--n`` evaluation prompts (Sec. 3.4, App. C.3).
+"""Ranking-guided generation on the first ``--n`` evaluation prompts.
 
 ``--grid default`` decodes with the paper's setting (tau=1, H_max=8, alpha0=5,
 warmup 3) and with plain greedy decoding (alpha0=0) as reference; this is the
-dashed line of Figure 3. ``--grid sensitivity`` adds the one-at-a-time sweep of
-Table 7 (tau in {0.5,1,2,4}, H_max in {4,16}, alpha0 in {1,2,10}, warmup in {0,8}).
+dashed line of the Best-of-N figure. ``--grid sensitivity`` adds the one-at-a-time
+sensitivity sweep (tau in {0.5,1,2,4}, H_max in {4,16}, alpha0 in {1,2,10}, warmup in {0,8}).
 Paper setting: 100 prompts (all LaMP-QA evaluation prompts where fewer), greedy,
 at most 48 new tokens.
 

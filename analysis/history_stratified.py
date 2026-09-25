@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Performance stratified by available history (App. B.4, Table ``tab:history_stratified``).
+"""Performance stratified by available history (stratified history table).
 
 Buckets the evaluation prompts by their user's history size (definitions in
 ``common.history_sizes``) and reports the Best-of-N ROUGE-L of the default

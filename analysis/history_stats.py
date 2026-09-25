@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""How much history users have (App. B.4, Table ``tab:history_stats``).
+"""How much history users have (history statistics table).
 
 Summarizes the number of historical interactions per user (median, mean, 10th
 and 90th percentiles, maximum) and lists the profile text that actually enters

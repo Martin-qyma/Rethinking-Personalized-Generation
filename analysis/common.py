@@ -66,7 +66,7 @@ def history_sizes(data_root, name):
 
     * ``per_question`` maps every evaluation prompt to its user's history size;
     * ``per_user`` is the list of sizes over the benchmark's users, one value per
-      user (the population of Table ``tab:history_stats``).
+      user (the population of the history statistics table).
 
     Definitions per family:
 

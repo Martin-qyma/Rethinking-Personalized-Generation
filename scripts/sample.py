@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sample candidate pools with the generator (vLLM), sharded and resumable.
 
-Paper setting (App. C.2): Qwen2.5-7B-Instruct, 256 samples per prompt,
+Paper setting: Qwen2.5-7B-Instruct, 256 samples per prompt,
 temperature 1.0; at most 512 new tokens (LaMP, LaMP-QA) or 128 (XRec). Every
 downstream stage uses the first 64 candidates of each pool in stored order.
 

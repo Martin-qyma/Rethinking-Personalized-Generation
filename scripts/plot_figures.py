@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Draw the paper figures from ``results/figdata.json`` (scripts/collect_results.py).
 
-    oracle.png          Fig. 1   oracle vs best generalist RM, averaged per task
-    ranking.png         Fig. 3   Best-of-N: our ranker vs four RMs (+ guided line), per task
-    scale.png           Fig. 4   ranker size vs finetuned 8B RM at N=64, per task (min/max bars)
-    headroom_full.png   Fig. 5   Fig. 1 per dataset
-    rank_full.png       Fig. 6   Fig. 3 per dataset
-    scale_full.png      Fig. 7   Fig. 4 per dataset
+    oracle.png          oracle vs best generalist RM, averaged per task
+    ranking.png         Best-of-N: our ranker vs four RMs (+ guided line), per task
+    scale.png           ranker size vs finetuned 8B RM at N=64, per task (min/max bars)
+    headroom_full.png   oracle.png per dataset
+    rank_full.png       ranking.png per dataset
+    scale_full.png      scale.png per dataset
 
     python scripts/plot_figures.py --out_dir results/figures
 """
@@ -156,7 +156,7 @@ def main():
 
     have_curves = all("rougeL" in fd[t] for _, m in TASK_GROUPS for t in m)
     if have_curves:
-        # Fig. 1: task-averaged headroom
+        # task-averaged headroom
         fig, axes = plt.subplots(1, 3, figsize=(15, 4.1), squeeze=False)
         for col, (group, members) in enumerate(TASK_GROUPS):
             ax = axes[0][col]
@@ -170,7 +170,7 @@ def main():
         fig.tight_layout(rect=(0, 0, 1, 0.93))
         save(fig, "oracle")
 
-        # Fig. 5: per-dataset headroom
+        # per-dataset headroom
         def draw_headroom(ax, t):
             headroom_panel(ax, fd[t]["rougeL"]["oracle"], fd[t]["rougeL"]["best_rm"])
             style_axis(ax)
@@ -179,7 +179,7 @@ def main():
         fig.tight_layout(rect=(0, 0, 1, 0.965))
         save(fig, "headroom_full")
 
-        # Fig. 3: task-averaged Best-of-N curves
+        # task-averaged Best-of-N curves
         fig, axes = plt.subplots(1, 3, figsize=(15, 4.1), squeeze=False)
         for col, (group, members) in enumerate(TASK_GROUPS):
             ax = axes[0][col]
@@ -197,7 +197,7 @@ def main():
         fig.tight_layout(rect=(0, 0, 1, 0.93))
         save(fig, "ranking")
 
-        # Fig. 6: per-dataset Best-of-N curves
+        # per-dataset Best-of-N curves
         def draw_curves(ax, t):
             curves_panel(ax, {**fd[t]["rougeL"], "guided": fd[t].get("guided_rougeL")})
             style_axis(ax)
@@ -216,7 +216,7 @@ def main():
     def star(t):
         return fd[t]["scaling"].get("rm8b")
 
-    # Fig. 7: per-dataset size scaling
+    # per-dataset size scaling
     def draw_scale(ax, t):
         vals, ys = mlp(t), list(mlp(t))
         ax.plot(X_MLP, vals, "-", color=LINE_COLOR, lw=2.2, zorder=3)
@@ -242,7 +242,7 @@ def main():
     fig.tight_layout(rect=(0, 0, 1, 0.965))
     save(fig, "scale_full")
 
-    # Fig. 4: task means with min/max bars
+    # task means with min/max bars
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.4), squeeze=False)
     for col, (group, members) in enumerate(TASK_GROUPS):
         ax = axes[0][col]

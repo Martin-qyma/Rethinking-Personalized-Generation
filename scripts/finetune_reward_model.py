@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Finetune Skywork-Reward-V2-Llama-3.1-8B on a dataset's candidate pools (Sec. 4.3).
+"""Finetune Skywork-Reward-V2-Llama-3.1-8B on a dataset's candidate pools.
 
-This is the model-size comparator of Figure 4: the strongest generalist reward
+This is the model-size comparator of the scaling analysis: the strongest generalist reward
 model, fully finetuned per dataset with the same pointwise objective as our
-ranker. Recipe (App. C.2):
+ranker. Recipe:
 
 * data: 1,500 training prompts (all available for LaMP-QA), 8 candidates each
   (best, worst and 6 random of the first 64), targets = ROUGE-L z-scored within

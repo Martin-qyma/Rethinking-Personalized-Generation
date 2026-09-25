@@ -38,7 +38,7 @@ def load_pools(data_root, name, split, max_cand=64):
 
 
 def standardize_within_pool(y, mask):
-    """z-score each row over its valid candidates (target standardization, Sec. 3.3)."""
+    """z-score each row over its valid candidates (target standardization)."""
     z = y.clone()
     for i in range(y.shape[0]):
         v = y[i][mask[i]]

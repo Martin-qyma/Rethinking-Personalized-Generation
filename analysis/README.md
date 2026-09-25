@@ -7,11 +7,11 @@ repository root; each prints markdown tables and writes a JSON file to
 
 | Script | Paper table | Inputs |
 |---|---|---|
-| `bleu_transfer.py` | App. B.2, `tab:bleu_transfer` (BLEU of the Best-of-64 selection, ours vs. four reward models) | `results/ranker/<ds>/3M_mse.json`, `<split>_samples_scores.json`, `<split>_rmscores_{skywork,internlm,urm,armorm}.jsonl` |
-| `metric_agreement.py` | App. B.2, `tab:metric_agreement` (ROUGE-L vs. BLEU agreement within and across pools) | `<split>_samples_scores.json` |
-| `history_stats.py` | App. B.4, `tab:history_stats` (history size per user) | LaMP: `dev_questions.json`; LaMP-QA: `{train,dev}_questions.json` + Personalized-RewardBench profiles (Hugging Face Hub); XRec: `{ctx,test}_questions.json` |
-| `history_stratified.py` | App. B.4, `tab:history_stratified` (Best-of-64 ROUGE-L by history bucket) | as `history_stats.py`, plus `results/ranker/<ds>/3M_mse.json` and `<split>_samples_scores.json` |
-| `compute_cost.py` | App. C.4, `tab:compute_cost` and the per-user profile-embedding cost | eval split `questions`, `samples`, `cand_embeddings.npz`; the reward models and the generator (GPU) |
+| `bleu_transfer.py` | Cross-metric generalization (BLEU of the Best-of-64 selection, ours vs. four reward models) | `results/ranker/<ds>/3M_mse.json`, `<split>_samples_scores.json`, `<split>_rmscores_{skywork,internlm,urm,armorm}.jsonl` |
+| `metric_agreement.py` | Metric agreement (ROUGE-L vs. BLEU agreement within and across pools) | `<split>_samples_scores.json` |
+| `history_stats.py` | History statistics (history size per user) | LaMP: `dev_questions.json`; LaMP-QA: `{train,dev}_questions.json` (`history_size` field); XRec: `{ctx,test}_questions.json` |
+| `history_stratified.py` | Performance by history size (Best-of-64 ROUGE-L by history bucket) | as `history_stats.py`, plus `results/ranker/<ds>/3M_mse.json` and `<split>_samples_scores.json` |
+| `compute_cost.py` | Inference cost and the per-user profile-embedding cost | eval split `questions`, `samples`, `cand_embeddings.npz`; the reward models and the generator (GPU) |
 
 `common.py` holds the shared helpers (ranker selections, history-size
 definitions, table formatting).

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Train the personalized ranking model and evaluate Best-of-N selection.
 
-Protocol of the paper (Sec. 4.1, App. C.2): pointwise MSE to within-pool
+Protocol of the paper: pointwise MSE to within-pool
 z-scored ROUGE-L, AdamW (lr 5e-4, weight decay 0.01), 15 epochs, batch 64,
 gradient clipping 1.0, seed 0, training pools of 64 candidates. The same
 trainer produces every ranker number in the paper; the flags below switch
 between the main run and the ablations:
 
-    --size {1M,3M,10M,30M}         ranker size (Fig. 4)                default 3M
-    --loss {mse,bt,ranknet,...}    objective (Table 2)                 default mse
+    --size {1M,3M,10M,30M}         ranker size (scaling)              default 3M
+    --loss {mse,bt,ranknet,...}    objective ablation                  default mse
     --inputs {xuy,xy,y}            input ablation                      default xuy
     --train_cands K                candidates per training pool        default 64
 

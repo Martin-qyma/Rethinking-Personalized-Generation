@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Print the ranker and guided-generation tables as markdown.
 
-    objectives   Table 2   ROUGE-L@64 per training objective (results/ranker/<ds>/3M_<loss>.json)
-    sizes        Fig. 4    ROUGE-L@64 per ranker size, full evaluation split
-    guided       Table 7   guided-generation sensitivity (results/guided/<ds>.json)
+    objectives   ROUGE-L@64 per training objective (results/ranker/<ds>/3M_<loss>.json)
+    sizes        ROUGE-L@64 per ranker size, full evaluation split
+    guided       guided-generation sensitivity (results/guided/<ds>.json)
 
     python scripts/print_tables.py objectives
 """

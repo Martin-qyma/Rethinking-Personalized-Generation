@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Inference cost of Best-of-N selection (App. C.4, Table ``tab:compute_cost``).
+"""Inference cost of Best-of-N selection (inference cost table).
 
 Measures wall-clock time and peak GPU memory of each stage for queries with N
 candidates on the local GPU:

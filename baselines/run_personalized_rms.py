@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seen-user comparison with PAL / VPL / PReF / LoRe on XRec (App. B.3, Table B.3).
+"""Seen-user comparison with PAL / VPL / PReF / LoRe on XRec.
 
 Protocol (favourable to the baselines: they get per-user preference labels, our
 ranker gets none):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GPO (Group Preference Optimization, Zhao et al., ICLR 2024) on XRec (App. B.3).
+"""GPO (Group Preference Optimization, Zhao et al., ICLR 2024) on XRec.
 
 Port of the official implementation (github.com/jamqd/Group-Preference-Optimization,
 models/tnp.py + models/gpo.py, configs/gpo.yaml) to Best-of-N candidate selection:

@@ -2,7 +2,7 @@
 # Data-parallel candidate sampling: one vLLM process per GPU, then merge.
 #
 #   GPUS=0,1,2,3 bash scripts/run_sampling.sh LaMP_7 dev
-#   GPUS=0,1,2,3 N=16 bash scripts/run_sampling.sh XRec_amazon ctx   # context split (App. B.3)
+#   GPUS=0,1,2,3 N=16 bash scripts/run_sampling.sh XRec_amazon ctx   # context split (personalized-RM baselines)
 #
 # Environment: GPUS (default 0), N (samples per prompt, default 256),
 # DATA_ROOT (default data), LOG_DIR (default logs/sampling).

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract the recycled embeddings h_x, h_u, h_y for a split (Sec. 3.2).
+"""Extract the recycled embeddings h_x, h_u, h_y for a split.
 
 Each embedding is the frozen generator's final-layer hidden state at the last
 token of a text: the task query (h_x), the profile text that enters the prompt

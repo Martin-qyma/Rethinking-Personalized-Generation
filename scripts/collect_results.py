@@ -2,15 +2,15 @@
 """Assemble the numbers behind the paper figures into ``results/figdata.json``.
 
 Per dataset:
-* Best-of-N curves (Figures 1, 3 and appendix counterparts), on the prompts
+* Best-of-N curves (headroom and Best-of-N figures), on the prompts
   scored by all four generalist reward models: oracle (metric-selected), random
   (mean candidate), each reward model, the best reward model at each N, our
   default ranker (``results/ranker/<dataset>/3M_mse.json``), and the ranking-guided
   generation value (``results/guided/<dataset>.json``, setting "default").
-* Size scaling (Figure 4 and appendix counterpart): Best-of-64 of the 1M/3M/10M/30M
+* Size scaling figures: Best-of-64 of the 1M/3M/10M/30M
   rankers and of the finetuned 8B reward model on the prompts the latter scored.
 
-Also prints the headroom-captured summary quoted in Sec. 4.2 / 4.3.
+Also prints the headroom-captured summary quoted in the main results.
 
     python scripts/collect_results.py
 """

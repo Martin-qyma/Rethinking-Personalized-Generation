@@ -1,4 +1,4 @@
-# Personalized reward-model baselines (Appendix B.3, Table B.3)
+# Personalized reward-model baselines
 
 Code for the comparison of our ranker with reward models that personalize from the
 target user's own labeled preferences: PAL, VPL, PReF, LoRe, GPO and SynthesizeMe.
@@ -12,7 +12,7 @@ interactions so that per-user preference labels can be built.
 | `embed_meanpool.py` | mean-pooled (prompt, candidate) embeddings for GPO |
 | `gpo.py` | GPO port (official transformer, meta-trained over users, in-context at test time) |
 | `synthesizeme/` | SynthesizeMe with a Llama-3.1-8B-Instruct judge: `prep.py`, `fit.py`, `bon.py`, `collect.py`, `common.py` (package workarounds), `llama8b_nodemos.json`, `run.sh` |
-| `collect_table.py` | prints Table B.3 from the result files |
+| `collect_table.py` | prints the comparison table from the result files |
 
 ## Protocol
 
@@ -43,7 +43,7 @@ interactions so that per-user preference labels can be built.
 * **Swap diagnostic** (reported by `collect_table.py --detail`): the change in
   ROUGE-L@64 when every user is given another user's fitted parameters / context set.
 
-## Reproducing Table B.3
+## Reproducing the comparison table
 
 All commands run from the repository root; `--data_root data` is the default.
 

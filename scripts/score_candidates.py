@@ -4,7 +4,7 @@
 Writes ``<split>_samples_scores.json`` = [{id, rouge1: [...], rougeL: [...], bleu: [...]}]:
 ROUGE-1 / ROUGE-L F-measure (``rouge_score``, Porter stemming, as in HF
 ``evaluate``) are the ranker's training targets and the evaluation metric;
-sentence BLEU (``sacrebleu``, effective order) is the held-out metric of App. B.2.
+sentence BLEU (``sacrebleu``, effective order) is the held-out metric of the cross-metric analysis.
 
     python scripts/score_candidates.py --dataset LaMP_7 --split dev
 """

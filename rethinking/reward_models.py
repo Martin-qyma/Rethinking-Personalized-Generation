@@ -1,4 +1,4 @@
-"""Uniform interface to the four generalist reward-model baselines (Sec. 4.1).
+"""Uniform interface to the four generalist reward-model baselines.
 
     skywork   Skywork/Skywork-Reward-V2-Llama-3.1-8B   sequence classifier, logits[:, 0]
     internlm  internlm/internlm2-7b-reward             remote code, model.get_scores(chats)

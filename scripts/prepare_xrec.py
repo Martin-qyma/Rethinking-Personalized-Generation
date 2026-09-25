@@ -11,7 +11,7 @@ Splits used in the paper:
     test   the full test set (3,000 interactions)                      -> evaluation
     train  the first 3,000 training interactions                        -> ranker training
     ctx    up to 8 training interactions of every test user              -> personalized-RM
-           baselines only (per-user preference pairs, App. B.3)
+           baselines only (per-user preference pairs)
 
     python scripts/prepare_xrec.py --src_dir /path/to/XRec/data
 """

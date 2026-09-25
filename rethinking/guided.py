@@ -1,4 +1,4 @@
-"""Ranking-guided generation (Sec. 3.4): single-pass greedy decoding in which the
+"""Ranking-guided generation: single-pass greedy decoding in which the
 ranker steers the next token whenever the generator is uncertain.
 
     H_t = -sum_v p_t(v) log p_t(v)                                  (entropy gate)

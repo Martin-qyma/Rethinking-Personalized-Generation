@@ -1,5 +1,5 @@
 #!/bin/bash
-# SynthesizeMe baseline pipeline on XRec (App. B.3). Run from the repository root.
+# SynthesizeMe baseline pipeline on XRec. Run from the repository root.
 #
 # Prerequisites
 #   - A Python env with the SynthesizeMe package (built against dspy 2.6.12; the

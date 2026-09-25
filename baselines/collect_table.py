@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print Table B.3 (personalized reward-model baselines, BoN ROUGE-L at N=64) from
+"""Print the table of personalized reward-model baselines, BoN ROUGE-L at N=64) from
 the results of run_personalized_rms.py, gpo.py and synthesizeme/collect.py.
 
 Ours / VPL / PAL / PReF / LoRe are evaluated on every test interaction of users with
