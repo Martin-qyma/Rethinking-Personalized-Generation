@@ -1,12 +1,8 @@
 # Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models
 
-Official code for the NeurIPS 2026 paper *Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models*.
+Official code for the NeurIPS 2026 paper *Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models.*
 
-The base generator already produces well-personalized responses; what is missing is a way to pick them out. When the evaluation metric selects the best of *N* sampled candidates (oracle), alignment with the user's own reference keeps rising with *N*. When a state-of-the-art reward model selects, it plateaus almost immediately.
-
-![Personalization headroom under Best-of-N](assets/oracle.png)
-
-We therefore train a **million-parameter MLP ranker** on the generator's own final-layer hidden states for the query (*h_x*), the user profile (*h_u*) and each candidate (*h_y*). No text is re-encoded and no per-user parameters are learned. The ranker is supervised with within-pool standardized ROUGE-L of on-policy candidates. It selects candidates for Best-of-N and can also steer greedy decoding on uncertain tokens (ranking-guided generation).
+**TL;DR:** LLMs already generate well-personalized responses; the bottleneck is picking them out. We replace billion-parameter reward models with a million-parameter personalized ranking model that scores candidates from the generator's own hidden states.
 
 ![Framework](assets/framework.png)
 
@@ -123,17 +119,6 @@ The headroom and Best-of-N curves use the prompts scored by all four generalist 
 | Training | MSE to within-pool z-scored ROUGE-L, AdamW lr 5e-4, weight decay 0.01, 15 epochs, batch 64 prompts, clip 1.0, seed 0 |
 | Guided decoding | greedy, entropy gate tau = 1, H_max = 8, alpha0 = 5, 3-token warmup |
 | 8B comparator | Skywork-Reward-V2-Llama-3.1-8B, full finetune, group-centred MSE, 1,500 prompts x 8 candidates, lr 2e-5, 1 epoch (2 for LaMP-QA) |
-
-## Citation
-
-```bibtex
-@inproceedings{rethinking2026personalized,
-  title     = {Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models},
-  author    = {TODO: author list},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year      = {2026}
-}
-```
 
 ## Acknowledgements
 
