@@ -2,7 +2,7 @@
 
 Official code for the NeurIPS 2026 paper *Rethinking Personalized Generation: Test-Time Alignment via Factorized Ranking Models.*
 
-**TL;DR:** LLMs already generate well-personalized responses; the bottleneck is picking them out. We replace billion-parameter reward models with a million-parameter personalized ranking model that scores candidates from the generator's own hidden states.
+**TL;DR:** LLMs already generate well-personalized responses; the bottleneck is picking them out. We replace billion-parameter reward models with a million-parameter personalized ranking model that outperforms them on all 9 datasets across 3 personalization settings, using <0.4% of their parameters and scoring ~10,000× faster.
 
 ![Framework](assets/framework.png)
 
